@@ -5,7 +5,13 @@ const nextConfig = {
             {
                 protocol: 'https',
                 hostname: 'f.fcdn.app'
-            }
+            },
+            {
+                protocol: 'https',
+                hostname: 'res.cloudinary.com'
+            },
+          
+         
         ]
     }
 };
