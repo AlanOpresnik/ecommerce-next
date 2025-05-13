@@ -10,7 +10,9 @@ const FeaturedProducts = async () => {
             <p className='text-3xl font-bold'>Productos Destacados</p>
             <div className='flex  gap-4'>
                 {products.map((p) => (
-                    <ProductCard product={p} />
+                    <div key={p._id}>
+                        <ProductCard product={p} />
+                    </div>
                 ))}
             </div>
         </div>

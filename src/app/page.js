@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Header from "../components/Header/Header";
-import FeaturedProducts from "../components/FeaturedProducts/FeaturedProducts";
+import FeatuedServerWrapper from "@/components/FeaturedProducts/FeatuedServerWrapper";
 
 export default function Home() {
   return (
@@ -9,7 +9,7 @@ export default function Home() {
         <Header />
       </header>
       <section>
-        <FeaturedProducts />
+        < FeatuedServerWrapper/>
       </section>
     </div>
   );

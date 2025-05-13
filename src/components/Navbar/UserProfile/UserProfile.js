@@ -4,18 +4,24 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { api } from '../../../../api/api'
 
 const UserProfile = () => {
     const { data, error } = useSession()
     const [user, setUser] = useState(null)
     const router = useRouter()
 
+
+
+    const fetchUser = async () => {
+        if (!data) return
+        const user = await api.getUserByEmail(data.user?.email)
+        setUser(user)
+        console.log(user)
+    }
+
     useEffect(() => {
-        if (data) {
-            setUser(data.user)
-        } else if (error) {
-            setUser(null)
-        }
+        fetchUser()
     }, [data])
 
 
@@ -67,6 +73,14 @@ const UserProfile = () => {
                         className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
                     >
                         Settings
+                    </a>
+                </MenuItem>
+                <MenuItem>
+                    <a
+                        href={user && user.role === 'admin' ? '/dashboard/admin' : '/dashboard/user'}
+                        className="block px-4 py-2 text-sm text-gray-700 data-focus:bg-gray-100 data-focus:outline-hidden"
+                    >
+                        {user && user.role === 'admin' ? 'Dashboard' : 'Perfil'}
                     </a>
                 </MenuItem>
                 <MenuItem>
