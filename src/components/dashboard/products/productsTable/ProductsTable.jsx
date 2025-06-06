@@ -15,7 +15,7 @@ const ProductsTable = ({ products }) => {
                                     <img
                                         src={product.images[0].secure_url || "/placeholder.svg"}
                                         alt={product.title}
-                                        className="h-10 w-10 rounded-md object-cover"
+                                        className="object-cover w-10 h-10 rounded-md"
                                     />
                                     <div className="flex flex-col">
                                         <span className="font-medium">{product.title}</span>
@@ -38,7 +38,7 @@ const ProductsTable = ({ products }) => {
                             </TableCell>
                             <ProductEditMenu  product={product}/>
                         </TableRow>
-                    ))}
+                    ))}//tarea: separar en un card
                 </TableBody>
             </Table>
         </CardContent>

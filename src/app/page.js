@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { UseFavoritesContext } from "@/context/FavoritesContext/FavoritesContext";
 import Header from "../components/Header/Header";
 import FeatuedServerWrapper from "@/components/FeaturedProducts/FeatuedServerWrapper";
 
@@ -9,7 +9,7 @@ export default function Home() {
         <Header />
       </header>
       <section>
-        < FeatuedServerWrapper/>
+        <FeatuedServerWrapper />
       </section>
     </div>
   );
